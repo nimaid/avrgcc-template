@@ -177,11 +177,11 @@ show_fuses:
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv	
 
 ## Sets to defaults (ATtinyx5)
-set_default_fuses:  LFUSE = 0x62
-set_default_fuses:  HFUSE = 0xdf
-set_default_fuses:  EFUSE = 0xff
-set_default_fuses:  FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m 
-set_default_fuses:  fuses
+set_default_fuses: LFUSE = 0x62
+set_default_fuses: HFUSE = 0xdf
+set_default_fuses: FUSE = 0xff
+set_default_fuses: FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m 
+set_default_fuses: fuses
 
 ## Set the fuse byte for full-speed mode
 ## Note: can also be set in firmware for modern chips
@@ -190,15 +190,17 @@ set_fast_fuse: FUSE_STRING = -U lfuse:w:$(LFUSE):m
 set_fast_fuse: fuses
 
 ## Clear the fuse byte
+clear_fast_fuse: LFUSE = 0x62
 clear_fast_fuse: FUSE_STRING = -U lfuse:w:$(LFUSE):m
 clear_fast_fuse: fuses
 
 ## Set the EESAVE fuse byte to preserve EEPROM across flashes
-set_eeprom_save_fuse: HFUSE = 0xD7
+set_eeprom_save_fuse: HFUSE = 0xd7
 set_eeprom_save_fuse: FUSE_STRING = -U hfuse:w:$(HFUSE):m
 set_eeprom_save_fuse: fuses
 
 ## Clear the EESAVE fuse byte
+clear_eeprom_save_fuse: HFUSE = 0xdf
 clear_eeprom_save_fuse: FUSE_STRING = -U hfuse:w:$(HFUSE):m
 clear_eeprom_save_fuse: fuses
 
