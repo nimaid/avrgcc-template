@@ -8,7 +8,7 @@ int main(void) {
 	DDRB |= (1<<LED_PIN);  // Set LED pin to output mode
 	
 	// Main Loop
-	while (1) {
+	while(1) {
 		PORTB |= (1<<LED_PIN);   // Turn LED on
 		_delay_ms(DELAY_TIME);   // Wait
 
