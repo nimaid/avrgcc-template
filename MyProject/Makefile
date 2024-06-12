@@ -9,10 +9,13 @@
 ##########------------------------------------------------------##########
 
 MCU   = atmega328p
-#MCU   = attiny85
+
+LFUSE = 0x62
+HFUSE = 0xdf
+EFUSE = 0xff
+
 F_CPU = 1000000UL
 BAUD  = 9600UL
-## Also try BAUD = 19200 or 38400 if you're feeling lucky.
 
 ##########------------------------------------------------------##########
 ##########                 Programmer Defaults                  ##########
@@ -164,11 +167,6 @@ avrdude_terminal:
 ##########       Fuse settings and suitable defaults            ##########
 ##########------------------------------------------------------##########
 
-## Values for this application
-LFUSE = 0x62
-HFUSE = 0xdf
-EFUSE = 0xff
-
 ## Generic 
 FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m 
 
@@ -178,7 +176,7 @@ fuses:
 show_fuses:
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv	
 
-## Sets to defaults (ATtinyx5)
+## Sets to defaults
 set_default_fuses: LFUSE = 0x62
 set_default_fuses: HFUSE = 0xdf
 set_default_fuses: FUSE = 0xff
