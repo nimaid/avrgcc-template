@@ -1,4 +1,5 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~ Read The Datasheet!!! ~~~~~~~~~~~~~~~~~~~~~~~~~
+# https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
 # https://ww1.microchip.com/downloads/en/devicedoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -7,7 +8,8 @@
 ##########    Check these every time you start a new project    ##########
 ##########------------------------------------------------------##########
 
-MCU   = attiny85
+MCU   = atmega328p
+#MCU   = attiny85
 F_CPU = 1000000UL
 BAUD  = 9600UL
 ## Also try BAUD = 19200 or 38400 if you're feeling lucky.
