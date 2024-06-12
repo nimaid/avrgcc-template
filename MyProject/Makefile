@@ -8,7 +8,7 @@
 ##########    Check these every time you start a new project    ##########
 ##########------------------------------------------------------##########
 
-MCU   = atmega328p
+MCU   = attiny85
 
 LFUSE = 0x62
 HFUSE = 0xdf
